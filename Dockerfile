@@ -11,6 +11,11 @@ RUN apk add --no-cache \
 
 RUN docker-php-ext-install mysqli pdo pdo_mysql xml session
 
+RUN echo "error_reporting = E_ALL & ~E_DEPRECATED & ~E_STRICT" > /usr/local/etc/php/conf.d/99-webpa.ini \
+    && echo "display_errors = Off" >> /usr/local/etc/php/conf.d/99-webpa.ini \
+    && echo "log_errors = On" >> /usr/local/etc/php/conf.d/99-webpa.ini \
+    && echo "error_log = /proc/1/fd/1" >> /usr/local/etc/php/conf.d/99-webpa.ini
+
 WORKDIR /var/www/webpa
 
 COPY composer.json /var/www/webpa/
