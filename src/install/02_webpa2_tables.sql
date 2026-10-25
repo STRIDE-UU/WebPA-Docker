@@ -25,6 +25,7 @@ CREATE TABLE pa2_assessment (
   feedback_name varchar(45) NOT NULL,
   feedback_length varchar(45) NOT NULL,
   feedback_optional tinyint(4) NOT NULL,
+  view_feedback tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (assessment_id)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -157,6 +158,12 @@ CREATE TABLE pa2_user_tracking (
   module_id int(11) DEFAULT NULL,
   object_id varchar(36) DEFAULT NULL,
   PRIMARY KEY (user_id,`datetime`, description)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+CREATE TABLE pa2_user_justification_publish_date (
+  assessment_id char(36) NOT NULL,
+  publish_date datetime DEFAULT NULL,
+  PRIMARY KEY (assessment_id)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 

@@ -27,7 +27,7 @@ services:
     restart: unless-stopped
     environment:
       APP_WWW: ${APP_WWW:-http://localhost}
-      DOC_ROOT: ${DOC_ROOT:-/var/www/webpa/}
+      DOC_ROOT: ${DOC_ROOT:-/var/www/webpa/src/}
       DB_HOST: db
       DB_PORT: ${DB_PORT:-3306}
       DB_USER: ${DB_USER:-webpa_user}
